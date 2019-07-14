@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'channels',
+    'channels_redis',
+    'chat'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,7 +73,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'djangoreact.wsgi.application'
-
+ASGI_APPLICATION = 'djangoreact.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
