@@ -1,76 +1,52 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
-// var chatSocket = ""
+var chatSocket = ""
 
-// chatSocket = new WebSocket(
-//   'ws://' + window.location.host +
-//   `/ws/games/chatbox/`);
+chatSocket = new WebSocket(
+  'ws://' + window.location.host +
+  `/ws/chat/message/`);
 export class Chat extends Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     messages: [],
-  //     currentMessage: "",
-  //     mount: this.props.messages
-  //   }
-
-  // }
-
-  // componentDidUpdate() {
-  //   chatSocket.onmessage = (e) => {
-  //     var data = JSON.parse(e.data);
-  //     var message = data['message'];
-  //     let mess = this.state.messages.reverse()
-
-  //     this.setState({
-  //       messages: [message, ...mess]
-  //     })
-
-  //   }
 
 
-  //   // document.getElementById("scrollToBottom").scrollIntoView({ behavior: "smooth" });
-  // }
-
-  // componentDidMount() {
+  componentDidMount() {
 
 
-  //   chatSocket = new WebSocket(
-  //     'ws://' + window.location.host +
-  //     `/ws/games/chatbox/`);
-  // }
+    chatSocket.onmessage = (e) => {
+      console.log("Asdadasasadsdasd")
+      var data = JSON.parse(e.data);
+      var message = data['message'];
+      // let mess = this.state.messages.reverse()
+      console.log(message)
+      // this.setState({
+      //   messages: [message, ...mess]
+      // })
+
+    }
+  }
 
 
 
 
-  // onKeyDown = (e, user) => {
+  onKeyDown = (e) => {
 
-  //   this.setState({
-  //     currentMessage: e.target.value
-  //   })
+    if (e.keyCode == 13) {
+      let message = {
+        "name": 'vijay',
+        "message": e.target.value
+      }
 
-  //   console.log(this.state.currentMessage)
+      e.target.value = ""
+      chatSocket.send(JSON.stringify({
+        'message': message
+      }));
 
-  //   if (e.keyCode == 13) {
-  //     let message = {
-  //       "name": user,
-  //       "message": e.target.value
-  //     }
+    }
 
-  //     e.target.value = ""
-  //     chatSocket.send(JSON.stringify({
-  //       'message': message
-  //     }));
-
-  //   }
-
-  // }
+  }
 
   render() {
-
-
 
     const messages = this.props.messages.map((message, index) => {
       return (
@@ -86,7 +62,7 @@ export class Chat extends Component {
 
     return (
       <Fragment>
-        <h3 className="text-center text-dark alert-danger chatmargin" >Chat</h3>
+        <h3 className="text-center alert-warning text-dark chatmargin" >Chat</h3>
         <div
           className="text-center pre-scrollable bg-light chatmargin chatmessages">
 
@@ -95,7 +71,7 @@ export class Chat extends Component {
         </div>
         <div className="row chatmargin" >
           <input
-            className="bg-dark text-light form-control col-2 "
+            className="alert-info  form-control col-2 "
             name='content'
 
             placeholder='Name'
@@ -103,11 +79,11 @@ export class Chat extends Component {
 
           />
           <input
-            className="bg-dark text-light form-control col-10 "
+            className="alert-info form-control col-10 "
             name='content'
 
             placeholder='Message - ENTER to Submit'
-          // onKeyDown={(e) => { this.onKeyDown(e, user) }}
+            onKeyDown={(e) => { this.onKeyDown(e) }}
 
           />
         </div>
