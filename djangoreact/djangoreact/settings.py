@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'channels',
     'channels_redis',
-    'chat'
+    'chat',
+    'frontend'
 ]
 
 

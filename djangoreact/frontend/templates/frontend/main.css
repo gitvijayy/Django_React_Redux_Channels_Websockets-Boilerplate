@@ -1,0 +1,402 @@
+.game-over {
+  background-image: url(https://i.ytimg.com/vi/GFVGfWJil30/maxresdefault.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.user {
+  height: 35px;
+  width: 35px;
+  margin-right: 10%;
+  margin-bottom: 2%;
+}
+
+.card-images {
+  margin-top: 4%;
+  height: 170px;
+}
+
+.logo {
+  font-family: "Anton", sans-serif;
+  font-size: 2em;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 1.5%;
+}
+
+.side-containers {
+  background: snow;
+  box-shadow: inset 0px -10px 25px #27233a, 0px 5px 5px black;
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+.playerbet {
+  box-shadow: none !important;
+  margin-left: 10% !important;
+  width: 100px !important;
+  height: 100px !important;
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin-top: 20px !important;
+}
+
+.player1name {
+  position: absolute;
+  left: 45%;
+  top: 0px;
+}
+
+.player2name {
+  position: absolute;
+  left: 45%;
+  bottom: 0px;
+  top: 735px;
+}
+
+.middlebox {
+  flex-direction: row;
+  display: grid;
+}
+
+.prizecard {
+  width: auto !important;
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin-left: 20% !important;
+  margin-top: 20px !important;
+}
+
+/* .active-games {
+  justify-content: space-evenly;
+} */
+
+.active-games div {
+  margin-top: 5%;
+}
+
+.active-games div button {
+  margin-bottom: 5%;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.logout {
+  box-shadow: inset 0px -10px 25px red, 0px 5px 5px black;
+}
+
+.login {
+  box-shadow: inset 0px -10px 25px red, 0px 5px 5px black;
+}
+
+.login:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.game-cards {
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+}
+
+.game-images {
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+  border-radius: 5px;
+}
+
+.box-shadow {
+  margin: 7%;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+  background: black;
+  color: snow;
+}
+
+.bg-common {
+  background: #373a3c;
+}
+
+.card-title {
+  font-family: "Anton", sans-serif;
+}
+
+.game-top-div {
+  margin: 3%;
+  display: flex;
+}
+
+.media-margin {
+  margin-left: 5%;
+}
+
+.game-top-div button {
+  border-radius: 5px;
+}
+
+.active-users {
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.active-users h3 {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
+}
+
+@media screen and (max-width: 600px) {
+  .side-containers {
+    /* visibility: hidden;
+    clear: both;
+    float: left; */
+    /* margin: 10px auto 5px 20px;
+    width: 28%; */
+    /* margin: 0;
+    width: 0;
+    display: none; */
+    position: relative;
+  }
+  /* .media-margin {
+    margin-left: 0; */
+}
+/* } */
+
+@media screen and (max-width: 600px) {
+  .game-top-div {
+    /* margin: 2%;
+    max-width: 100%; */
+    display: block;
+  }
+}
+
+.user-block {
+  margin: 3%;
+}
+
+.playingcard img {
+  width: 7%;
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+  border-radius: 5px;
+  height: 120px;
+}
+
+.playingcard img:hover {
+  cursor: pointer;
+}
+
+.playingcard {
+  justify-content: space-around;
+  display: flex;
+}
+
+.playingcard1 img {
+  width: 7.5% !important;
+  height: 105px !important;
+}
+
+.memorycard img {
+  width: 7.5%;
+  height: 105px;
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  margin-right: 1%;
+}
+
+.memorycard img:hover {
+  cursor: pointer;
+}
+
+.memorycard {
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bg-alternate-2 {
+  background-image: url(https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-050.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 4%;
+  box-shadow: inset 0px -10px 25px lightblue, 0px 5px 5px black;
+  /* http: //www.4usky.com/data/out/2/163983240-ace-of-spades-wallpapers.jpg */
+  /* https: //images.all-free-download.com/images/graphiclarge/playing_cards_and_dice_vector_290620.jpg */
+  /* box-shadow: inset 0px -10px 25px lightblue, 0px 5px 5px black; */
+  /* background: transparent; */
+  /* https: //images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 */
+  /* https: //images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 */
+  /* https: //visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-050.jpg */
+  /* https: //images.pexels.com/photos/988872/pexels-photo-988872.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940 */
+}
+
+.newgame {
+  height: 60px;
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+}
+
+.leader {
+  height: 60px;
+  box-shadow: inset 0px -10px 25px green, 0px 5px 5px black;
+  margin-top: 10%;
+  width: 8em;
+}
+
+.rules {
+  height: 60px;
+  box-shadow: inset 0px -10px 25px red, 0px 5px 5px black;
+  color: black;
+  margin-top: 10%;
+  width: 8em;
+}
+
+.active-games div {
+  max-height: 55em;
+}
+
+.block {
+  height: 40em;
+}
+
+.aces {
+  width: 25% !important;
+  box-shadow: none !important;
+  height: 150px !important;
+}
+
+.table-shadow {
+  box-shadow: inset 0px -10px 25px snow, 0px 5px 5px black;
+}
+
+.chat-shadow {
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px white;
+}
+
+.table-borderless td,
+.table-borderless th {
+  border: 0;
+}
+
+.construction {
+  height: 120px;
+  margin-left: 20%;
+}
+
+/* sssssssssssssssssssssssssssssssssssssssssssssssss */
+
+.playingcardwar img {
+  width: 15%;
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+  border-radius: 5px;
+  height: 200px;
+}
+
+.playingcardwar.middle img {
+  width: 10%;
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+  border-radius: 5px;
+  height: 120px;
+}
+
+.playingcardwar .middle {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardsplayedwar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.newgame-war {
+  height: 60px;
+  box-shadow: inset 0px -10px 25px black, 0px 5px 5px black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.new-games-titlewar {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.empty-cardwar {
+  border: 2px solid black;
+  height: 200px;
+  width: 15%;
+  border-radius: 12px;
+}
+
+.beggining-button {
+  font-size: 7rem;
+  text-align: -webkit-center;
+}
+
+.titles-opponent {
+  display: flex;
+  justify-content: space-around;
+}
+
+.player-icon {
+  height: 100px;
+}
+
+.opponent-deck-amount {
+  position: relative;
+  top: 35%;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.player-name {
+  position: relative;
+  top: 35%;
+  font-size: 25px;
+  font-weight: bolder;
+  right: 3%;
+}
+
+.game-top-div-war button {
+  border-radius: 5px;
+  margin-bottom: 10%;
+  margin-right: -3%;
+}
+
+.playingcardwar {
+  justify-content: space-around;
+  display: flex;
+}
+
+.playingcardwar img:hover {
+  cursor: pointer;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* @keyframes fade {
+  from
+} */
+
+.sideCardWar {
+  /* opacity: 0; 
+  animation:  fadeout 3s; */
+}
