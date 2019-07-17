@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'channels_redis',
     'chat',
     'frontend'
+
 ]
 
 

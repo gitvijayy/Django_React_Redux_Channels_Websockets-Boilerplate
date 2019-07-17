@@ -5,4 +5,5 @@ from django.db import models
 
 class Chat(models.Model):
     name = models.CharField(max_length=500, blank=True)
+    message = models.CharField(max_length=500, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

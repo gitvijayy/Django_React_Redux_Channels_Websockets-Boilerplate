@@ -1,82 +1,78 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { getCookies } from '../games/goofspiel/datahelpers'
-var chatSocket = ""
+
+// var chatSocket = ""
 
 // chatSocket = new WebSocket(
 //   'ws://' + window.location.host +
 //   `/ws/games/chatbox/`);
 export class Chat extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      messages: [],
-      currentMessage: "",
-      mount: this.props.messages
-    }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     messages: [],
+  //     currentMessage: "",
+  //     mount: this.props.messages
+  //   }
 
-  }
+  // }
 
-  componentDidUpdate() {
-    chatSocket.onmessage = (e) => {
-      var data = JSON.parse(e.data);
-      var message = data['message'];
-      let mess = this.state.messages.reverse()
+  // componentDidUpdate() {
+  //   chatSocket.onmessage = (e) => {
+  //     var data = JSON.parse(e.data);
+  //     var message = data['message'];
+  //     let mess = this.state.messages.reverse()
 
-      this.setState({
-        messages: [message, ...mess]
-      })
+  //     this.setState({
+  //       messages: [message, ...mess]
+  //     })
 
-    }
-
-
-    // document.getElementById("scrollToBottom").scrollIntoView({ behavior: "smooth" });
-  }
-
-  componentDidMount() {
+  //   }
 
 
-    chatSocket = new WebSocket(
-      'ws://' + window.location.host +
-      `/ws/games/chatbox/`);
-  }
+  //   // document.getElementById("scrollToBottom").scrollIntoView({ behavior: "smooth" });
+  // }
+
+  // componentDidMount() {
+
+
+  //   chatSocket = new WebSocket(
+  //     'ws://' + window.location.host +
+  //     `/ws/games/chatbox/`);
+  // }
 
 
 
 
-  onKeyDown = (e, user) => {
+  // onKeyDown = (e, user) => {
 
-    this.setState({
-      currentMessage: e.target.value
-    })
+  //   this.setState({
+  //     currentMessage: e.target.value
+  //   })
 
-    console.log(this.state.currentMessage)
+  //   console.log(this.state.currentMessage)
 
-    if (e.keyCode == 13) {
-      let message = {
-        "name": user,
-        "message": e.target.value
-      }
+  //   if (e.keyCode == 13) {
+  //     let message = {
+  //       "name": user,
+  //       "message": e.target.value
+  //     }
 
-      e.target.value = ""
-      chatSocket.send(JSON.stringify({
-        'message': message
-      }));
+  //     e.target.value = ""
+  //     chatSocket.send(JSON.stringify({
+  //       'message': message
+  //     }));
 
-    }
+  //   }
 
-  }
+  // }
 
   render() {
 
-    let user;
 
-    if (this.props.user && this.props.user.username) {
-      user = this.props.user.username
-    }
 
-    const messages = this.state.messages.map((message, index) => {
+    const messages = this.props.messages.map((message, index) => {
       return (
         <Fragment key={index}>
           <b>@{message.name}</b>
@@ -90,22 +86,32 @@ export class Chat extends Component {
 
     return (
       <Fragment>
-        <h3 className="text-center logo">Chat</h3>
+        <h3 className="text-center text-dark alert-danger chatmargin" >Chat</h3>
         <div
-          className="text-center pre-scrollable" style={{ height: "250px", maxHeight: "250px", marginBottom: "5%" }}>
+          className="text-center pre-scrollable bg-light chatmargin chatmessages">
 
           {messages}
 
         </div>
+        <div className="row chatmargin" >
+          <input
+            className="bg-dark text-light form-control col-2 "
+            name='content'
 
-        <input
-          className="bg-dark text-light form-control"
-          name='content'
-          style={{ resize: "none", marginBottom: "5%" }}
-          placeholder='ENTER to Submit'
-          onKeyDown={(e) => { this.onKeyDown(e, user) }}
+            placeholder='Name'
+          // onKeyDown={(e) => { this.onKeyDown(e, user) }}
 
-        />
+          />
+          <input
+            className="bg-dark text-light form-control col-10 "
+            name='content'
+
+            placeholder='Message - ENTER to Submit'
+          // onKeyDown={(e) => { this.onKeyDown(e, user) }}
+
+          />
+        </div>
+
 
       </Fragment>
     )
@@ -113,7 +119,7 @@ export class Chat extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  messages: state.chat.messages
 })
 
 export default connect(mapStateToProps)(Chat)
