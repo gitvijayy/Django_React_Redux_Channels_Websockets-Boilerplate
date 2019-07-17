@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'django_extensions',
     'channels',
     'channels_redis',
-    'chat',
-    'frontend'
-
+    'rest_framework',
+    'frontend',
+    'chat'
 ]
 
 
@@ -96,6 +96,7 @@ CHANNEL_LAYERS = {
 #     }
 # }
 
+# Postgres Db Setup
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

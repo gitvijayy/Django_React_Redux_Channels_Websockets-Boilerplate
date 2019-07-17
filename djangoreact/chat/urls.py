@@ -8,6 +8,6 @@ from .api import ChatViewSet
 
 router = routers.DefaultRouter()
 router.register('chat', ChatViewSet, 'chat')
-
+router.register('api/chat', ChatViewSet, 'chat')
 
 urlpatterns = router.urls

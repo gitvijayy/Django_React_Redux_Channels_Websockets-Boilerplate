@@ -18,8 +18,8 @@ export const getMessages = () => (dispatch) => {
 
 
 export const addMessage = (message) => (dispatch) => {
-  axios.post(`/api/chat/`, message, tokenConfig(getState)).then(res => {
-
+  axios.post(`/api/chat/`, message).then(res => {
+    console.log(res.data)
     dispatch({
       type: ADD_MESSAGE,
       payload: res.data

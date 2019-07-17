@@ -3,10 +3,7 @@ import { GET_MESSAGES, ADD_MESSAGE } from '../actions/types'
 
 const initialState = {
 
-  messages: [{
-    name: "vijay",
-    message: "test"
-  }]
+  messages: []
 
 }
 
@@ -24,7 +21,7 @@ export default function (state = initialState, action) {
 
       return {
         ...state,
-        messages: [action.payload]
+        messages: [...state.messages, action.payload]
       }
 
 

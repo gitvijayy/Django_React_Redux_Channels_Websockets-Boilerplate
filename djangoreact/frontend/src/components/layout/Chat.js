@@ -1,24 +1,37 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { getMessages, addMessage } from '../../actions/chat'
 
 var chatSocket = ""
+var roomname = "default"
 
 chatSocket = new WebSocket(
   'ws://' + window.location.host +
-  `/ws/chat/message/`);
-export class Chat extends Component {
+  `/ws/chat/${roomname}/`);
+class Chat extends Component {
 
+  state = {
+    name: ''
+  }
+
+
+  componentDidUpdate() {
+
+    document.getElementById("scrollToBottom").scrollIntoView({ behavior: "smooth" });
+  }
 
 
   componentDidMount() {
 
+    this.props.getMessages()
 
     chatSocket.onmessage = (e) => {
-      console.log("Asdadasasadsdasd")
+
       var data = JSON.parse(e.data);
       var message = data['message'];
+      this.props.addMessage(message)
       // let mess = this.state.messages.reverse()
-      console.log(message)
+      // console.log(message)
       // this.setState({
       //   messages: [message, ...mess]
       // })
@@ -31,9 +44,14 @@ export class Chat extends Component {
 
   onKeyDown = (e) => {
 
+    if (e.target.name === 'name') {
+      this.setState({ name: e.target.value })
+      return
+    }
+
     if (e.keyCode == 13) {
       let message = {
-        "name": 'vijay',
+        "name": !this.state.name ? 'Guest' : this.state.name,
         "message": e.target.value
       }
 
@@ -47,17 +65,22 @@ export class Chat extends Component {
   }
 
   render() {
+    let messages;
 
-    const messages = this.props.messages.map((message, index) => {
-      return (
-        <Fragment key={index}>
-          <b>@{message.name}</b>
-          <br />
-          <p>{message.message}</p>
+    if (this.props.messages) {
+      console.log("am here")
+      messages = this.props.messages.map((message, index) => {
+        return (
+          <Fragment key={index}>
+            <b>@{message.name}</b>
+            <br />
+            <p>{message.message}</p>
 
-        </Fragment>
-      )
-    })
+          </Fragment>
+        )
+      })
+    }
+
 
 
     return (
@@ -67,20 +90,20 @@ export class Chat extends Component {
           className="text-center pre-scrollable bg-light chatmargin chatmessages">
 
           {messages}
-
+          <div id="scrollToBottom"></div>
         </div>
         <div className="row chatmargin" >
           <input
             className="alert-info  form-control col-2 "
-            name='content'
+            name='name'
 
             placeholder='Name'
-          // onKeyDown={(e) => { this.onKeyDown(e, user) }}
+            onBlur={(e) => { this.onKeyDown(e) }}
 
           />
           <input
             className="alert-info form-control col-10 "
-            name='content'
+            name='message'
 
             placeholder='Message - ENTER to Submit'
             onKeyDown={(e) => { this.onKeyDown(e) }}
@@ -98,4 +121,4 @@ const mapStateToProps = state => ({
   messages: state.chat.messages
 })
 
-export default connect(mapStateToProps)(Chat)
+export default connect(mapStateToProps, { getMessages, addMessage })(Chat)
