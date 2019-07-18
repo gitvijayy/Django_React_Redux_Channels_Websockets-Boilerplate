@@ -18,7 +18,7 @@ First, fork this boilerplate so you get your own copy of it. Once you have done 
 ### In the other terminal
 
 - cd into frontend
-- pm install
+- npm install
 - Rename the .env.example file to be called .env
 - Then run npm start and go to localhost:3000 in your browser.
 
