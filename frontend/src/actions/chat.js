@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { GET_MESSAGES, ADD_MESSAGE } from './types'
 
+var server = `http${process.env.REACT_APP_SERVER}`
+
 export const getMessages = () => (dispatch) => {
 
-  axios.get(`http${process.env.REACT_APP_SERVER}/api/chat`).then(res => {
+  axios.get(`${server}/api/chat`).then(res => {
     dispatch({
       type: GET_MESSAGES,
       payload: res.data
@@ -14,7 +16,7 @@ export const getMessages = () => (dispatch) => {
 }
 
 export const addMessage = (message, callback) => (dispatch) => {
-  axios.post(`http${process.env.REACT_APP_SERVER}/api/chat/`, message).then(res => {
+  axios.post(`${server}/api/chat/`, message).then(res => {
     callback(res.data)
   }).catch(err =>
     console.log(err.response.data, err.response.status)
