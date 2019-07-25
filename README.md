@@ -7,9 +7,11 @@
 
 First, fork this boilerplate so you get your own copy of it. Once you have done that, you can clone your new repo to your machine, and get started.
 
-## Database (django-react/backend/backend/settings.py)
+## Database 
 
 ### Both Postgres and sqlite3 have been configured to work
+
+path - django-react/backend/backend/settings.py
 
 - If using postgres you will have to make changes to the configuration based on your local settings, namely username and password.
 - For sqlite3 just uncomment the sqlite configuration in settings and you are good to go
@@ -33,5 +35,6 @@ You should see a simple chat client in the browser
 open a new tab and go to localhost:3000
 Test by sending a message in one client it should show up in all.(Channels & Websocket)
 
-Contact
-Please contact me at 7822vijay@gmail.com if you have any questions or requests, or post an issue to this repo.
+## Contact
+
+- Please contact me at 7822vijay@gmail.com if you have any questions or requests, or post an issue to this repo.
