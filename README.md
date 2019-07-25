@@ -11,7 +11,7 @@ First, fork this boilerplate so you get your own copy of it. Once you have done 
 
 ### Both Postgres and sqlite3 have been configured to work
 
-path - django-react/backend/backend/settings.py
+path - /backend/backend/settings.py
 
 - If using postgres you will have to make changes to the configuration based on your local settings, namely username and password.
 - For sqlite3 just uncomment the sqlite configuration in settings and you are good to go
