@@ -9,20 +9,20 @@ First, fork this boilerplate so you get your own copy of it. Once you have done 
 
 ## Database (django-react/backend/backend/settings.py)
 
-# Both Postgres and sqlite3 have been configured to work
+### Both Postgres and sqlite3 have been configured to work
 
 - If using postgres you will have to make changes to the configuration based on your local settings, namely username and password.
 - For sqlite3 just uncomment the sqlite configuration in settings and you are good to go
 
 ## You need TWO terminals for this
 
-## In one terminal
+### In one terminal
 
 - pipenv shell
 - pipenv update
 - python backend/manage.py runserver
 
-## In the other terminal
+### In the other terminal
 
 - cd into frontend
 - npm install
